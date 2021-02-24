@@ -1,0 +1,46 @@
+body {
+  font-size: 1.3em;
+}
+
+header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  background-color: #F1F1F1;
+  text-align: center;
+}
+
+#footer-content {
+  margin-bottom: 1em;
+}
+
+#title a{
+  text-decoration: none
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#content {
+  flex-grow: 1;
+  text-align: center;
+  word-wrap: break-word;
+  
+}
+
+#content p{
+  word-wrap: break-word;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+#main-content ul{
+  padding-left: 0;
+  list-style: none;
+}
