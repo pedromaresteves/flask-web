@@ -1,0 +1,21 @@
+{% extends 'base.html.jinja' %}
+{% block title %}Roman Converter{% endblock %}
+{% block content %}
+    <h2>Roman Converter</h2>
+    <form>
+        <label for='number' >Insert a number:<label>
+        {% if inputNumber or inputNumber == 0 %}
+            <input placeholder='ex: 1984' name='number' type='number' value='{{inputNumber}}' max="99999"/>
+        {% else %}
+            <input placeholder='ex: 1984' name='number' type='number' value max="99999"/>
+        {% endif %}
+        <button type='submit'>Convert</button>
+    </form>
+    {% if convertedNumber.validInput  %}
+        <p>Result: {{ convertedNumber.value }} </p>
+    {% elif not convertedNumber.validInput and inputNumber != None and inputNumber <= 0 %}
+        <p>That input ain't valid, jackass.</p>
+    {% else %}
+        <p>What are you waiting for?<br />Come on, do it. Do it now!</p>
+    {% endif %}
+{% endblock %}
