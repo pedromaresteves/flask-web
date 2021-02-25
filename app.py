@@ -1,6 +1,5 @@
 from flask import Flask, url_for, render_template, request
 from projects.roman import convert_to_roman
-from projects.guess_number import guess_number
 from markupsafe import escape
 
 app = Flask(__name__)
