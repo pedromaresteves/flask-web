@@ -1,4 +1,3 @@
-import os
 from flask import Flask, url_for, render_template, request
 from projects.roman import convert_to_roman
 from markupsafe import escape
@@ -28,7 +27,3 @@ def page_not_found(error):
 # with app.test_request_context():
 #     print(url_for('home'), flush=True)
 #     print(url_for('quiz'), flush=True)
-
-if __name__ == '__main__':
-    from os import environ
-    app.run(host='0.0.0.0', debug=False, port=os.environ.get("PORT", 5000))
