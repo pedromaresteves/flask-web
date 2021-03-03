@@ -1,0 +1,33 @@
+{% extends 'base.html.jinja' %}
+{% block title %}Magic Number Jamboree{% endblock %}
+{% block content %}
+    <h2>Magic Number Jamboree</h2>
+    {% if game_over %}
+        {% if game_status == 'lost' %}
+            <div>
+                <p>The Magic Number was: <strong>{{magic_number}}</strong></p>
+                <p>You couldn't guess the magic number. You lose sucker.</p>
+            </div>
+        {% else %}
+            <div>
+                <p>The Magic Number was: <strong>{{magic_number}}</strong></p>
+                <p>You got it. Nice one, Champ!</p>
+            </div>
+        {% endif %}
+    {% else %}
+        <p>Hello {{username}}, can you guess the <strong>Magic Number</strong>?</p>
+        <small>Number of tries remaining: {{tries_remaining}}</small>
+        <form method='post'>
+            <label for='number' >Insert a number:<label>
+            <input placeholder='ex: 7' id='number' name='number' type='number' value max="99999"/>
+            <button type='submit'>Guess!</button>
+            {% if mistake == 'invalid' %}
+                <p><small>Your input was invalid</small></p>
+            {% endif %}
+        </form>
+        {% if last_guess and last_guess != -1 %}
+            <p>Your last try was: {{last_guess}}</p>
+            <p>That's too {{mistake}}!</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

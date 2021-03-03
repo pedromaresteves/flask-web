@@ -5,9 +5,9 @@
     <form>
         <label for='number' >Insert a number:<label>
         {% if inputNumber or inputNumber == 0 %}
-            <input placeholder='ex: 1984' name='number' type='number' value='{{inputNumber}}' max="99999"/>
+            <input placeholder='ex: 1984' name='number' type='number' id='number' value='{{inputNumber}}' max="99999"/>
         {% else %}
-            <input placeholder='ex: 1984' name='number' type='number' value max="99999"/>
+            <input placeholder='ex: 1984' name='number' type='number' id='number' value max="99999"/>
         {% endif %}
         <button type='submit'>Convert</button>
     </form>

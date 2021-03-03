@@ -1,0 +1,14 @@
+{% extends 'base.html.jinja' %}
+{% block title %}Magic Number Jamboree Home{% endblock %}
+{% block content %}
+    <h2>Magic Number Jamboree</h2>
+    <p>Enter your name and click the Start Game button to start the Jamboree.</p>
+    <form method='post'>
+        <label for='username' >Insert your name:<label>
+        <input placeholder='John Smith' id='username' name='username' type='text' maxlength="40"/>
+        <button type='submit'>Start Game!</button>
+        {% if username_is_valid != True %}
+            <p><small>Your name isn't invalid</small></p>
+        {% endif %}
+    </form>
+{% endblock %}
