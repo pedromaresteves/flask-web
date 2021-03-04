@@ -5,10 +5,11 @@
     <p>Enter your name and click the Start Game button to start the Jamboree.</p>
     <form method='post'>
         <label for='username' >Insert your name:<label>
-        <input placeholder='John Smith' id='username' name='username' type='text' maxlength="40"/>
+        <input placeholder='John Smith' id='username' name='username' type='text' maxlength="40" required/>
         <button type='submit'>Start Game!</button>
         {% if username_is_valid != True %}
-            <p><small>Your name isn't invalid</small></p>
+            <p><small>That name is not valid</small></p>
         {% endif %}
     </form>
 {% endblock %}
+{% block jsScripts %}<script src="/static/romanNumbers.js"></script>{% endblock %}

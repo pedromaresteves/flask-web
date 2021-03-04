@@ -10,8 +10,8 @@ def create_new_game(username, magic_number):
         connection = psycopg2.connect(**db_connection_creds)
         connection.autocommit = True
         cursor = connection.cursor()
-        cursor.execute(f"INSERT INTO test4 (id, username, magic_number, number_of_tries, game_over) VALUES (default, '{username}', {magic_number}, 0, False)")
-        cursor.execute("SELECT * FROM test4 ORDER BY id DESC")
+        cursor.execute(f"INSERT INTO magic_number (id, username, magic_number, number_of_tries, game_over) VALUES (default, '{username}', {magic_number}, 0, False)")
+        cursor.execute("SELECT * FROM magic_number ORDER BY id DESC")
         record = cursor.fetchone()
         new_game_info['game_id'] = record[0]
     except (Exception) as error:
@@ -26,7 +26,7 @@ def get_game_info(game_id):
     connection = psycopg2.connect(**db_connection_creds)
     connection.autocommit = True
     cursor = connection.cursor()
-    cursor.execute(f"SELECT * FROM test4 WHERE id = {game_id}")
+    cursor.execute(f"SELECT * FROM magic_number WHERE id = {game_id}")
     record = cursor.fetchone()
     cursor.close()
     connection.close()
@@ -39,7 +39,7 @@ def update_game_info(game_id, game_data):
     connection = psycopg2.connect(**db_connection_creds)
     connection.autocommit = True
     cursor = connection.cursor()
-    cursor.execute(f"UPDATE test4 SET game_status = '{game_data['game_status']}', last_guess = {game_data['last_guess']}, last_mistake = '{game_data['last_mistake']}', number_of_tries = {game_data['number_of_tries']}, game_over = '{game_data['game_over']}' WHERE id = {game_id};")
+    cursor.execute(f"UPDATE magic_number SET game_status = '{game_data['game_status']}', last_guess = {game_data['last_guess']}, last_mistake = '{game_data['last_mistake']}', number_of_tries = {game_data['number_of_tries']}, game_over = '{game_data['game_over']}' WHERE id = {game_id};")
     cursor.close()
     connection.close()
     return

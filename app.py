@@ -23,7 +23,7 @@ def romanConverter():
 def guessNumberHome():
     username_is_valid = True
     if request.method == 'POST':
-        magic_number = randint(1, 10)
+        magic_number = randint(1, 30)
         escaped_username = escape(request.form['username'])
         username_is_valid = validate_username(escaped_username)
         if username_is_valid:

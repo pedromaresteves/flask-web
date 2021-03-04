@@ -15,19 +15,26 @@
             </div>
         {% endif %}
     {% else %}
-        <p>Hello {{username}}, can you guess the <strong>Magic Number</strong>?</p>
-        <small>Number of tries remaining: {{tries_remaining}}</small>
+        <div class='instructions'>
+            <p>Hello {{username}}, can you guess the <strong>Magic Number</strong>?</p>
+            <p>The Magic Number is a number between 1 and 30.</p>
+        </div>
+        
         <form method='post'>
+            <p><small>Number of tries remaining: {{tries_remaining}}</small></p>
             <label for='number' >Insert a number:<label>
-            <input placeholder='ex: 7' id='number' name='number' type='number' value max="99999"/>
+            <input placeholder='ex: 7' id='number' name='number' type='number' value min="1" value max="30" required/>
             <button type='submit'>Guess!</button>
             {% if mistake == 'invalid' %}
-                <p><small>Your input was invalid</small></p>
+                <p><small>Your input is not valid</small></p>
             {% endif %}
         </form>
         {% if last_guess and last_guess != -1 %}
+        <div class='guess-feedback'>
             <p>Your last try was: {{last_guess}}</p>
             <p>That's too {{mistake}}!</p>
+        </div>
         {% endif %}
     {% endif %}
 {% endblock %}
+{% block jsScripts %}<script src="/static/romanNumbers.js"></script>{% endblock %}
